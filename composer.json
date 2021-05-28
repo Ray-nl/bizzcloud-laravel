@@ -1,0 +1,39 @@
+{
+    "name": "raynl/bizzcloud",
+    "description": "Bizzcloud for Statamic",
+    "autoload": {
+        "psr-4": {
+            "Raynl\\Bizzcloud\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Raynl\\Bizzcloud\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rolin Bos"
+        }
+    ],
+    "support": {
+        "email": "rolin@ray.nl"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Bizzcloud",
+            "description": "Bizzcloud addon"
+        },
+        "laravel": {
+            "providers": [
+                "Raynl\\Bizzcloud\\BizzcloudServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {
+        "darkaonline/ripcord": "^0.1.8"
+    }
+}
