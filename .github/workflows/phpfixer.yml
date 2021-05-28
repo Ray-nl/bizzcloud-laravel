@@ -1,0 +1,20 @@
+name: phpfixer
+on:
+  push:
+    branches:
+      - 'master'
+    pull_request:
+      paths:
+        - '**.php'
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install composer
+        run: composer install
+      - name: Run php-cs-fixer
+        run: ./vendor/bin/php-cs-fixer fix
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Applying php-cs-fixer changes

@@ -1,4 +1,4 @@
-#Welkom
+#Bizzcloud for Laravel
 
 #Add to env
 Add to your env the following code:
