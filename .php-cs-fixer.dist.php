@@ -15,16 +15,17 @@ $finder = PhpCsFixer\Finder::create()
     ->notName('_ide_helper.php')
     ->in(__DIR__);
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->setRules([
         '@PSR2'                                       => true,
         'combine_consecutive_unsets'                  => true,
-        'method_separation'                           => true,
-        'no_multiline_whitespace_before_semicolons'   => true,
+        'phpdoc_separation'                           => true,
+        'multiline_whitespace_before_semicolons'   => true,
+        'single_line_comment_style' => true,
         'single_quote'                                => true,
         'declare_equal_normalize'                     => true,
         'function_typehint_space'                     => true,
-        'hash_to_slash_comment'                       => true,
         'include'                                     => true,
         'lowercase_cast'                              => true,
         'no_leading_namespace_whitespace'             => true,
@@ -40,6 +41,7 @@ return PhpCsFixer\Config::create()
         'unary_operator_spaces'                       => true,
         'whitespace_after_comma_in_array'             => true,
         'encoding'                                    => true,
+        'array_indentation' => true,
         'array_syntax' => [
             'syntax' => 'short',
         ],
@@ -47,17 +49,10 @@ return PhpCsFixer\Config::create()
             'allow_single_line_closure' => true,
         ],
         'ordered_imports' => [
-            'importsOrder'  => null,
-            'sortAlgorithm' => 'length'
+            'imports_order'  => null,
+            'sort_algorithm' => 'length'
         ],
-        'no_extra_consecutive_blank_lines' => [
-            'curly_brace_block',
-            'extra',
-            'parenthesis_brace_block',
-            'square_brace_block',
-            'throw',
-            'use',
-        ],
+        'no_extra_blank_lines' => true,
         'concat_space' => [
             'spacing' => 'one',
         ],
