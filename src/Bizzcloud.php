@@ -21,8 +21,14 @@ class Bizzcloud extends Ripcord
 
     public function products()
     {
-        return $this->client->execute_kw($this->db, $this->uid, $this->password,
-            'product.template', 'search_read', [], [
+        return $this->client->execute_kw(
+            $this->db,
+            $this->uid,
+            $this->password,
+            'product.template',
+            'search_read',
+            [],
+            [
                 'fields' => [
                     'list_price',
                     'name',
