@@ -1,6 +1,8 @@
 {
-    "name": "raynl/bizzcloud",
-    "description": "Bizzcloud for Statamic",
+    "name": "raynl/bizzcloud-laravel",
+    "description": "Bizzcloud for Laravel",
+    "homepage": "https://github.com/Ray-nl/bizzcloud-laravel",
+    "keywords": ["Laravel","Bizzcloud","Statamic"],
     "autoload": {
         "psr-4": {
             "Raynl\\Bizzcloud\\": "src"
@@ -13,7 +15,10 @@
     },
     "authors": [
         {
-            "name": "Rolin Bos"
+            "name": "Rolin Bos",
+            "email": "rolin@ray.nl",
+            "homepage": "https://github.com/rolinbos",
+            "role": "Developer"
         }
     ],
     "support": {
@@ -35,6 +40,7 @@
         "friendsofphp/php-cs-fixer": "^3.0"
     },
     "require": {
+        "php": ">= 7.*",
         "darkaonline/ripcord": "^0.1.8"
     }
 }
