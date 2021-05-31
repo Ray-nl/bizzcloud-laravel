@@ -35,6 +35,7 @@ class Bizzcloud extends Ripcord
      * @param string $method
      * @param array $parameters_position
      * @param array $parameters_keyword
+     *
      * @return array
      */
     public function execution(string $model, string $method, array $parameters_position, array $parameters_keyword = []): array
@@ -55,6 +56,7 @@ class Bizzcloud extends Ripcord
      *
      * @param string $model
      * @param array|string[] $attributes
+     *
      * @return array
      */
     public function getFields(string $model, array $attributes = ['string', 'help', 'type']): array
@@ -69,6 +71,7 @@ class Bizzcloud extends Ripcord
      * @param string $model
      * @param string $method
      * @param array $search
+     *
      * @return array
      */
     public function search(string $model, array $search, int $offset = null, int $limit = null): array
@@ -84,6 +87,7 @@ class Bizzcloud extends Ripcord
      * @param array $search
      * @param int|null $offset
      * @param int|null $limit
+     *
      * @return array
      */
     public function searchCount(string $model, array $search, int $offset = null, int $limit = null): array
@@ -97,6 +101,7 @@ class Bizzcloud extends Ripcord
      * @param string $model
      * @param array $ids
      * @param array $parameters_keyword
+     *
      * @return array
      */
     public function read(string $model, array $ids, array $parameters_keyword = []): array
@@ -113,6 +118,7 @@ class Bizzcloud extends Ripcord
      * @param string $model
      * @param array $search
      * @param array $parameters_keyword
+     *
      * @return array
      */
     public function searchAndRead(string $model, array $search, array $parameters_keyword = []): array
@@ -129,6 +135,7 @@ class Bizzcloud extends Ripcord
      *
      * @param string $model
      * @param $values
+     *
      * @return array
      */
     public function create(string $model, $values): array
@@ -144,11 +151,12 @@ class Bizzcloud extends Ripcord
      * @param string $model
      * @param int $id
      * @param array $values
+     *
      * @return array
      */
     public function update(string $model, int $id, array $values): array
     {
-        return $this->execution($model, 'write', [$id],[$values]);
+        return $this->execution($model, 'write', [$id], [$values]);
     }
 
     /**
@@ -156,10 +164,11 @@ class Bizzcloud extends Ripcord
      *
      * @param string $model
      * @param array $ids
+     *
      * @return array
      */
     public function delete(string $model, array $ids): array
     {
-        return $this->execution($model, 'unlink', $ids,[]);
+        return $this->execution($model, 'unlink', $ids, []);
     }
 }

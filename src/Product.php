@@ -8,6 +8,7 @@ class Product extends Bizzcloud
      * Get all products
      *
      * @param array $parameters_keyword
+     *
      * @return array
      */
     public function getAllProducts(array $parameters_keyword = []): array
@@ -19,6 +20,7 @@ class Product extends Bizzcloud
      * Get a specific product from id
      *
      * @param int $id
+     *
      * @return array
      */
     public function getProduct(int $id): array
