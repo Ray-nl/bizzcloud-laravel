@@ -3,6 +3,7 @@
     "description": "Bizzcloud for Laravel",
     "homepage": "https://github.com/Ray-nl/bizzcloud-laravel",
     "keywords": ["Laravel","Bizzcloud","Statamic"],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Raynl\\Bizzcloud\\": "src"

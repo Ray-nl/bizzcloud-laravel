@@ -6,6 +6,10 @@ use Ripcord\Providers\Laravel\Ripcord;
 
 class Bizzcloud extends Ripcord
 {
+    /**
+     * Bizzcloud constructor.
+     * @throws \ErrorException
+     */
     public function __construct()
     {
         // Check if ENV files exists it not exsits throw error
