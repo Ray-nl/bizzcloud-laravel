@@ -40,7 +40,6 @@
         "friendsofphp/php-cs-fixer": "^3.0"
     },
     "require": {
-        "php": ">= 7.*",
-        "darkaonline/ripcord": "^0.1.8"
+        "darkaonline/ripcord": "^0.1.8",
     }
 }
