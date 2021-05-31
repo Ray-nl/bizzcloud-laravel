@@ -8,6 +8,7 @@ class Bizzcloud extends Ripcord
 {
     /**
      * Bizzcloud constructor.
+     *
      * @throws \ErrorException
      */
     public function __construct()
