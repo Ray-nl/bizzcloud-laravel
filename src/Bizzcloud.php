@@ -39,12 +39,10 @@ class Bizzcloud extends Ripcord
      * @param string $method
      * @param array $parameters_position
      * @param array $parameters_keyword
-     *
-     * @return array
      */
-    public function execution(string $model, string $method, array $parameters_position, array $parameters_keyword = []): array
+    public function execution(string $model, string $method, array $parameters_position, array $parameters_keyword = [])
     {
-        return $this->client->execute_kw(
+        $result = $this->client->execute_kw(
             $this->db,
             $this->uid,
             $this->password,
@@ -53,6 +51,12 @@ class Bizzcloud extends Ripcord
             $parameters_position,
             $parameters_keyword,
         );
+
+        if ($result == null) {
+            return [];
+        }
+
+        return $result;
     }
 
     /**
@@ -78,7 +82,7 @@ class Bizzcloud extends Ripcord
      *
      * @return array
      */
-    public function search(string $model, array $search, int $offset = null, int $limit = null): array
+    public function search(string $model, array $search = [[]], int $offset = null, int $limit = null): array
     {
         return $this->execution($model, 'search', $search, ['offset' => $offset, 'limit' => $limit]);
     }
@@ -89,14 +93,12 @@ class Bizzcloud extends Ripcord
      *
      * @param string $model
      * @param array $search
-     * @param int|null $offset
-     * @param int|null $limit
      *
-     * @return array
+     * @return int
      */
-    public function searchCount(string $model, array $search, int $offset = null, int $limit = null): array
+    public function searchCount(string $model, array $search = [[]]): int
     {
-        return $this->execution($model, 'search_count', $search, ['offset' => $offset, 'limit' => $limit]);
+        return $this->execution($model, 'search_count', $search);
     }
 
     /**

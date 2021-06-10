@@ -11,9 +11,19 @@ class Product extends Bizzcloud
      *
      * @return array
      */
-    public function getAllProducts(array $parameters_keyword = []): array
+    public function getAllProducts(array $parameters_keyword = ['fields' => ['name']]): array
     {
         return $this->execution('product.template', 'search_read', [], $parameters_keyword);
+    }
+
+    /**
+     * Count all the records
+     *
+     * @return int
+     */
+    public function getCountOfProducts(): int
+    {
+        return $this->searchCount('product.template');
     }
 
     /**
