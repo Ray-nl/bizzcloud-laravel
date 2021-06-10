@@ -2,8 +2,9 @@
 
 ---
 This package makes it easy to communicate with Bizzcloud.
+[![Latest Version](https://img.shields.io/github/release/spatie/laravel-medialibrary.svg?style=flat-square)](https://github.com/spatie/laravel-medialibrary/releases)
 
-[![Latest Version](https://img.shields.io/github/release/raynl/bizzcloud-laravel.svg?style=flat-square)](https://github.com/Ray-nl/bizzcloud-laravel/releases)
+[![Latest Version](https://img.shields.io/github/release/raynl/bizzcloud-laravel.svg?style=flat-square)](https://github.com/Ray-nl/bizzcloud-laravel/releases/)
 [![Total Downloads](https://img.shields.io/packagist/dt/raynl/bizzcloud-laravel.svg?style=flat-square)](https://packagist.org/packages/raynl/bizzcloud-laravel)
 
 # Setup
@@ -129,14 +130,28 @@ There are two methods available.
 ### Get all products
 Get all of the products. It use the model **product.template**.
 
-```composer log
-getAllProducts(array $parameters_keyword = []): array
+```
+ getAllProducts(array $parameters_keyword = []): array
 ```
 
+Get specified fields:
+```
+ getAllProducts(['fields' => ['field1', 'field2']]): array
+```
+
+Get offset and limit:
+```
+ getAllProducts(['offset' => 0, 'limit' => 10]): array
+```
+
+Get specified fields, offset and limit
+```
+ getAllProducts(['offset' => 0, 'limit' => 10, 'fields' => ['field', 'field']]): array
+```
 ### Get a specific product of it's id
 Get a specific product of it's id. It use the model **product.template**.
 
-```composer log
+```
 getProduct(int $id): array
 ```
 
