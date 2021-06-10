@@ -14,15 +14,23 @@ class Bizzcloud extends Ripcord
     public function __construct()
     {
         // Check if ENV files exists it not exsits throw error
-        if (
-            env('BIZZ_URL') == null && env('BIZZ_URL') == '' ||
-            env('BIZZ_DB') == null && env('BIZZ_DB') == '' ||
-            env('BIZZ_USERNAME') == null && env('BIZZ_USERNAME') == '' ||
-            env('BIZZ_PASSWORD') == null && env('BIZZ_PASSWORD') == ''
-        ) {
-            throw new \ErrorException('Not all ENV values are set');
+        if (env('BIZZ_URL') == null && env('BIZZ_URL') == '') {
+            throw new \ErrorException('Bizzcloud URL is not set');
         }
 
+        if (env('BIZZ_DB') == null && env('BIZZ_DB') == '') {
+            throw new \ErrorException('Bizzcloud DATABASE is not set');
+        }
+
+        if (env('BIZZ_USERNAME') == null && env('BIZZ_USERNAME') == '') {
+            throw new \ErrorException('Bizzcloud USERNAME is not set');
+        }
+
+        if (env('BIZZ_PASSWORD') == null && env('BIZZ_PASSWORD') == '') {
+            throw new \ErrorException('Bizzcloud PASSWORD is not set');
+        }
+
+        // Set configuration for Bizzcloud
         $config = [
             'url' => config('bizzcloud.url'),
             'db' => config('bizzcloud.db'),
