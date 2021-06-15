@@ -12,6 +12,7 @@ class Product extends Bizzcloud
      * @param array $parameters_keyword
      *
      * @return array
+     *
      * @throws Exception
      */
     public function getAllProducts(array $parameters_keyword = ['fields' => ['name', 'qty_available']]): array
@@ -23,6 +24,7 @@ class Product extends Bizzcloud
      * Count all the records
      *
      * @return int
+     *
      * @throws Exception
      */
     public function getCountOfProducts(): int
@@ -36,6 +38,7 @@ class Product extends Bizzcloud
      * @param int $id
      *
      * @return array
+     *
      * @throws Exception
      */
     public function getProduct(int $id): array
@@ -54,20 +57,22 @@ class Product extends Bizzcloud
      * @param int $id
      * @param int $quantity
      * @param int $locationID
+     *
      * @return bool
+     *
      * @throws Exception
      */
     public function updateQuantityProduct(int $id, int $quantity, int $locationID = 12): bool
     {
-       $stock = $this->execution(
-    'stock.change.product.qty',
-    'create',
+        $stock = $this->execution(
+            'stock.change.product.qty',
+            'create',
             [[
                 'product_id' => $id,
                 'location_id' => $locationID,
                 'new_quantity' => $quantity,
             ]]
-       );
+        );
 
         $this->execution(
             'stock.change.product.qty',

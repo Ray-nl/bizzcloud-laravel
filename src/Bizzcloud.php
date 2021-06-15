@@ -49,6 +49,7 @@ class Bizzcloud extends Ripcord
      * @param string $method
      * @param array $parameters_position
      * @param array $parameters_keyword
+     *
      * @throws Exception
      */
     public function execution(string $model, string $method, array $parameters_position, array $parameters_keyword = [])
@@ -67,8 +68,7 @@ class Bizzcloud extends Ripcord
             return [];
         }
 
-        if (isset($result['faultCode']) && $result['faultCode'] === 1)
-        {
+        if (isset($result['faultCode']) && $result['faultCode'] === 1) {
             throw new Exception($result['faultString']);
         }
 
@@ -82,6 +82,7 @@ class Bizzcloud extends Ripcord
      * @param array|string[] $attributes
      *
      * @return array
+     *
      * @throws Exception
      */
     public function getFields(string $model, array $attributes = ['string', 'help', 'type']): array
@@ -97,7 +98,9 @@ class Bizzcloud extends Ripcord
      * @param array $search
      * @param int|null $offset
      * @param int|null $limit
+     *
      * @return array
+     *
      * @throws Exception
      */
     public function search(string $model, array $search = [[]], int $offset = null, int $limit = null): array
@@ -113,6 +116,7 @@ class Bizzcloud extends Ripcord
      * @param array $search
      *
      * @return int
+     *
      * @throws Exception
      */
     public function searchCount(string $model, array $search = [[]]): int
@@ -128,6 +132,7 @@ class Bizzcloud extends Ripcord
      * @param array $parameters_keyword
      *
      * @return array
+     *
      * @throws Exception
      */
     public function read(string $model, array $ids, array $parameters_keyword = []): array
@@ -146,6 +151,7 @@ class Bizzcloud extends Ripcord
      * @param array $parameters_keyword
      *
      * @return array
+     *
      * @throws Exception
      */
     public function searchAndRead(string $model, array $search, array $parameters_keyword = []): array
@@ -164,6 +170,7 @@ class Bizzcloud extends Ripcord
      * @param $values
      *
      * @return array
+     *
      * @throws Exception
      */
     public function create(string $model, $values): array
@@ -179,12 +186,14 @@ class Bizzcloud extends Ripcord
      * @param string $model
      * @param int $id
      * @param array $fields
+     *
      * @return bool
+     *
      * @throws Exception
      */
     public function update(string $model, int $id, array $fields): bool
     {
-        return $this->execution($model, 'create', array(array($id), $fields));
+        return $this->execution($model, 'create', [[$id], $fields]);
     }
 
     /**
@@ -194,6 +203,7 @@ class Bizzcloud extends Ripcord
      * @param array $ids
      *
      * @return array
+     *
      * @throws Exception
      */
     public function delete(string $model, array $ids): array
